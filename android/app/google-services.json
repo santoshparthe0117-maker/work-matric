@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "589290053993",
+    "project_id": "work-matric",
+    "storage_bucket": "work-matric.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589290053993:android:5fbea8730ff95df51fddf8",
+        "android_client_info": {
+          "package_name": "com.work_metric.workmetric"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzGPFVEgScwvBKbSU1j6qiozVaBDc9RnY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
