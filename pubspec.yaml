@@ -16,9 +16,10 @@ dependencies:
   geolocator: ^13.0.1
   geocoding: ^2.0.5
   intl: ^0.18.0
-  permission_handler: ^10.4.0
+  permission_handler: ^11.3.0
   flutter_launcher_icons: ^0.10.0
   slide_to_act: ^2.0.2
+  url_launcher: ^6.3.2
 
 dev_dependencies:
   flutter_test:

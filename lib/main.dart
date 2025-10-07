@@ -37,7 +37,7 @@ class WorkMetricApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'WorkMetric',
       initialRoute: Routes.SPLASH_SCREEN,
-      getPages: AppPages.pages,
+      getPages: routes,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.indigo),
     );

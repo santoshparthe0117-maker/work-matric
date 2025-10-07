@@ -12,4 +12,5 @@ abstract class Routes {
   static const ADD_EMPLOYEE = '/add_employee';
   static const EDIT_PROFILE = '/edit_profile';
   static const CHANGE_PASSWORD = '/change_password';
+  static const FORGOT_PASSWORD = '/forgot_password';
 }

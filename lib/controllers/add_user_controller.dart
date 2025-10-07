@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../services/firestore_service.dart';
 import '../models/user_model.dart';
 
-class UserController extends GetxController {
+class AddUserController extends GetxController {
   final firestore = Get.find<FirestoreService>();
 
   /// Observable list of workers
@@ -63,41 +63,21 @@ class UserController extends GetxController {
 
   /// Add a new worker (FirebaseAuth + Firestore + update local list)
   Future<void> addWorker(String email, String name, String password) async {
-    final auth = FirebaseAuth.instance;
-
-    // Save current manager session
-    final currentUser = auth.currentUser;
-    final managerEmail = currentUser?.email;
-
-    // ⚠️ You must have the manager’s password (either re-enter or securely stored)
-    const managerPassword = "admin@123";
-
     try {
-      // Step 1: Create worker account (logs manager out!)
-      final cred = await auth.createUserWithEmailAndPassword(
+      // Step 1: Register worker in Firebase Auth
+      final cred = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
       final uid = cred.user!.uid;
 
-      // Step 2: Create worker doc
+      // Step 2: Create worker document in Firestore
       await firestore.createUserDocument(uid, email, 'worker', name: name);
 
-      // Step 3: Sign out worker
-      await auth.signOut();
-
-      // Step 4: Sign back in as manager
-      if (managerEmail != null) {
-        await auth.signInWithEmailAndPassword(
-          email: managerEmail,
-          password: managerPassword,
-        );
-      }
-
-      // Step 5: Fetch and add worker to list
+      // Step 3: Fetch newly created worker
       final newUser = await getUserById(uid);
       if (newUser != null) {
-        workers.add(newUser);
+        workers.add(newUser); // Add to reactive list
       }
 
       Get.snackbar(

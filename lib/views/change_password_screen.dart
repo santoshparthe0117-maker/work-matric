@@ -38,7 +38,7 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
       // Update password
       await user.updatePassword(_newPasswordC.text.trim());
       Get.snackbar('Success', 'Password updated successfully');
-      Get.back();
+      //Get.back();
     } on FirebaseAuthException catch (e) {
       if (e.code == 'wrong-password') {
         Get.snackbar('Error', 'Old password is incorrect');
@@ -58,6 +58,7 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xFF8E2DE2), Color(0xFF4A00E0)],
@@ -167,17 +168,20 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         gradient: const LinearGradient(
-          colors: [Color(0xFF6A11CB), Color(0xFF2575FC)],
+          colors: [
+            Color.fromARGB(255, 208, 188, 230),
+            Color.fromARGB(255, 247, 248, 249)
+          ],
         ),
       ),
       child: TextFormField(
         controller: controller,
         obscureText: true,
-        style: const TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.black),
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: const TextStyle(color: Colors.white70),
-          prefixIcon: Icon(icon, color: Colors.white),
+          hintStyle: const TextStyle(color: Colors.black),
+          prefixIcon: Icon(icon, color: Colors.black),
           filled: true,
           fillColor: Colors.transparent,
           border: OutlineInputBorder(

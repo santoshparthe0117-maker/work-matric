@@ -28,7 +28,7 @@ class _WorkerHomeViewState extends State<WorkerHomeView> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) => setState(() => _currentIndex = index),
-        selectedItemColor: const Color(0xFF2575FC),
+        selectedItemColor: const Color.fromARGB(255, 159, 24, 227),
         unselectedItemColor: Colors.grey.shade400,
         backgroundColor: const Color(0xFF6A11CB),
         items: const [

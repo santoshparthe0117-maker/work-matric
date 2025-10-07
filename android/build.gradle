@@ -1,6 +1,6 @@
 buildscript {
     // Set Kotlin version to the latest stable version (e.g., 2.0.10 or newer)
-    ext.kotlin_version = '2.1.0'  // Update this version to the latest stable version
+    ext.kotlin_version = '2.2.20'  // Update this version to the latest stable version
 
     repositories {
         google()
@@ -9,7 +9,7 @@ buildscript {
 
     dependencies {
         // Update Android Gradle Plugin (AGP) to the latest version (7.4.0 or newer)
-        classpath 'com.android.tools.build:gradle:7.4.0'  // Ensure this is the latest version you need
+        classpath 'com.android.tools.build:gradle:8.9.1'  // Ensure this is the latest version you need
         classpath "com.google.gms:google-services:4.3.15"  // Firebase plugin
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"  // Kotlin Gradle Plugin
         classpath "com.google.firebase:firebase-crashlytics-gradle:2.9.4"  // Firebase Crashlytics plugin

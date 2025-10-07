@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../services/firestore_service.dart';
@@ -25,8 +26,12 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<String?> register(String email, String password, String role,
-      {String? name}) async {
+  Future<void> register(
+    String email,
+    String password,
+    String role, {
+    String? name,
+  }) async {
     try {
       final cred = await _auth.createUserWithEmailAndPassword(
         email: email,
@@ -34,15 +39,29 @@ class AuthController extends GetxController {
       );
 
       final uid = cred.user!.uid;
+
+      // Create Firestore doc
       await firestore.createUserDocument(uid, email, role, name: name);
-      return uid;
+
+      // Show success popup
+      Get.snackbar(
+        'Success',
+        'Employee account created successfully!',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.green,
+        colorText: Colors.white,
+      );
+
+      // Go back to previous screen
+      Get.back(result: true); // result=true to notify previous page
     } catch (e) {
       Get.snackbar(
         'Register failed',
         e.toString(),
         snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
       );
-      return null;
     }
   }
 

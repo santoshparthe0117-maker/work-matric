@@ -39,19 +39,15 @@ class WorkerAccountSection extends StatelessWidget {
                   ),
                 ),
                 child: CircleAvatar(
-                  radius: 50,
-                  backgroundColor: Colors.white24,
-                  child: Text(
-                    (user?.displayName ?? 'W')[0].toUpperCase(),
-                    style: const TextStyle(fontSize: 36, color: Colors.white),
-                  ),
-                ),
+                    radius: 50,
+                    backgroundColor: Colors.white24,
+                    child: Icon(Icons.account_circle)),
               ),
             ),
             const SizedBox(height: 16),
             Center(
               child: Text(
-                user?.displayName ?? 'Worker',
+                user?.displayName ?? '',
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -78,7 +74,10 @@ class WorkerAccountSection extends StatelessWidget {
               title: 'Edit Profile',
               icon: Icons.edit,
               gradient: const LinearGradient(
-                colors: [Color(0xFF6A11CB), Color(0xFF2575FC)],
+                colors: [
+                  Color.fromARGB(255, 236, 231, 236),
+                  Color.fromARGB(255, 239, 178, 232)
+                ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
@@ -88,7 +87,10 @@ class WorkerAccountSection extends StatelessWidget {
               title: 'Change Password',
               icon: Icons.lock,
               gradient: const LinearGradient(
-                colors: [Color(0xFF6A11CB), Color(0xFF2575FC)],
+                colors: [
+                  Color.fromARGB(255, 236, 231, 236),
+                  Color.fromARGB(255, 239, 178, 232)
+                ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
@@ -98,7 +100,10 @@ class WorkerAccountSection extends StatelessWidget {
               title: 'View History',
               icon: Icons.history,
               gradient: const LinearGradient(
-                colors: [Color(0xFF6A11CB), Color(0xFF2575FC)],
+                colors: [
+                  Color.fromARGB(255, 236, 231, 236),
+                  Color.fromARGB(255, 239, 178, 232)
+                ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
@@ -108,7 +113,10 @@ class WorkerAccountSection extends StatelessWidget {
               title: 'Logout',
               icon: Icons.logout,
               gradient: const LinearGradient(
-                colors: [Color(0xFF6A11CB), Color(0xFF2575FC)],
+                colors: [
+                  Color.fromARGB(255, 236, 231, 236),
+                  Color.fromARGB(255, 239, 178, 232)
+                ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
@@ -147,12 +155,12 @@ class WorkerAccountSection extends StatelessWidget {
           child: Row(
             children: [
               const SizedBox(width: 16),
-              Icon(icon, color: Colors.white, size: 36),
+              Icon(icon, color: Colors.black, size: 36),
               const SizedBox(width: 16),
               Text(
                 title,
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   shadows: [

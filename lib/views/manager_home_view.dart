@@ -113,49 +113,49 @@ class ManagerHomeView extends StatelessWidget {
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.2),
-                          shape: BoxShape.circle,
-                        ),
-                        child: IconButton(
-                          icon:
-                              const Icon(Icons.delete, color: Colors.redAccent),
-                          onPressed: () {
-                            Get.dialog(
-                              AlertDialog(
-                                title: const Text("Delete Worker"),
-                                content: const Text(
-                                  "Are you sure you want to delete this worker? This action cannot be undone.",
-                                ),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () => Get.back(),
-                                    child: const Text("Cancel"),
-                                  ),
-                                  ElevatedButton(
-                                    onPressed: () async {
-                                      await userCtrl.deleteWorker(worker.id!);
-                                      Get.back();
-                                      Get.snackbar(
-                                        "Deleted",
-                                        "Worker has been deleted",
-                                        snackPosition: SnackPosition.BOTTOM,
-                                        backgroundColor: Colors.redAccent,
-                                        colorText: Colors.white,
-                                      );
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.red,
-                                    ),
-                                    child: const Text("Delete"),
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                        ),
-                      ),
+                      // Container(
+                      //   decoration: BoxDecoration(
+                      //     color: Colors.white.withOpacity(0.2),
+                      //     shape: BoxShape.circle,
+                      //   ),
+                      //   child: IconButton(
+                      //     icon:
+                      //         const Icon(Icons.delete, color: Colors.redAccent),
+                      //     onPressed: () {
+                      //       Get.dialog(
+                      //         AlertDialog(
+                      //           title: const Text("Delete Worker"),
+                      //           content: const Text(
+                      //             "Are you sure you want to delete this worker? This action cannot be undone.",
+                      //           ),
+                      //           actions: [
+                      //             TextButton(
+                      //               onPressed: () => Get.back(),
+                      //               child: const Text("Cancel"),
+                      //             ),
+                      //             ElevatedButton(
+                      //               onPressed: () async {
+                      //                 await userCtrl.deleteWorker(worker.id!);
+                      //                 Get.back();
+                      //                 Get.snackbar(
+                      //                   "Deleted",
+                      //                   "Worker has been deleted",
+                      //                   snackPosition: SnackPosition.BOTTOM,
+                      //                   backgroundColor: Colors.redAccent,
+                      //                   colorText: Colors.white,
+                      //                 );
+                      //               },
+                      //               style: ElevatedButton.styleFrom(
+                      //                 backgroundColor: Colors.red,
+                      //               ),
+                      //               child: const Text("Delete"),
+                      //             ),
+                      //           ],
+                      //         ),
+                      //       );
+                      //     },
+                      //   ),
+                      // ),
                       const SizedBox(width: 6),
                       const Icon(Icons.arrow_forward_ios,
                           size: 18, color: Colors.white),
@@ -204,8 +204,8 @@ class ManagerHomeView extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.person, color: Color(0xFF6A11CB)),
-              title: const Text('Account'),
-              onTap: () => Get.toNamed(Routes.ACCOUNT),
+              title: const Text('Change Password'),
+              onTap: () => Get.toNamed(Routes.CHANGE_PASSWORD),
             ),
             ListTile(
               leading: const Icon(Icons.logout, color: Colors.red),
